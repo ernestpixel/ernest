@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
+// next.config.ts
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Remove i18n – not needed in App Router
+  experimental: {
+    // Optional, you can keep this for other experimental features
+  },
 };
 
 export default nextConfig;

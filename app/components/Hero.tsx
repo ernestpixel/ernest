@@ -2,9 +2,13 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import { useParams } from 'next/navigation';
+import { getTranslation } from '@/lib/translations';
 
 export default function Hero() {
   const [animate, setAnimate] = useState(false);
+  const { locale } = useParams();
+  const t = (key: string) => getTranslation(locale as string, key);
 
   useEffect(() => {
     const timeout = setTimeout(() => setAnimate(true), 100);
@@ -46,7 +50,7 @@ export default function Hero() {
               animate ? 'translate-x-0 opacity-100' : 'translate-x-[100%] opacity-0'
             )}
           >
-            Voiceover Actor
+            {t('heroRole')}
           </div>
         </div>
       </div>
